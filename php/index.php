@@ -5,7 +5,7 @@
     <div class="container"> 
         <div class="row">
             <div class="col-8 img">
-                <img src = "./images/office.png">;
+                <img src = "../images/office.png">;
             </div>
             <div class="col-4 content">
                 <h1>Welcome</h1>
