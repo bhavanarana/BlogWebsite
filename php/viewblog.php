@@ -12,16 +12,19 @@ if (isset($_REQUEST['id'])) {
 <body>
 <?php include 'nav.php'; ?>
 <div class="container">
-    <?php foreach ($blog_details as $value) { ?>
+    <div class="row justify-content-center">
+          <?php foreach ($blog_details as $value) { ?>
         <div class="card mt-5" style="width: 38rem;">
   <div class="card-body">
     <h5 class="card-title"><?php echo $value['Title']; ?></h5>
     <p class="card-text"><?php echo $value['Description']; ?></p>
-    <a href="edit.php" class="btn btn-primary">Edit</a>
+    <a href="edit.php?id=<?php echo $value['id'] ?>" class="btn btn-primary">Edit</a>
     <a href="delete.php" class="btn btn-primary">Delete</a>
   </div>
 </div>
 <?php } ?>
+    </div>
+  
     </div>
 </body>
 </html>
