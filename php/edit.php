@@ -17,7 +17,7 @@ if (isset($_REQUEST['submit'])) {
         header("Location: view.php?result=updated");
     }
     else{
-      echo "error";
+      die("error".mysqli_error($update));
     }
 }
 ?>

@@ -36,7 +36,7 @@
                 <div class="alert alert-success" role="alert">
                 You have Successfully Deleted your Blog
                 </div>
-                </div>
+                </div> 
                 <?php } ?>
                       <?php
                        if ($_REQUEST['result'] == 'updated') { ?>
