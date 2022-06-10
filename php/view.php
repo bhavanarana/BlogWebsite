@@ -20,7 +20,7 @@
   <div class="card-body">
     <h5 class="card-title"><?php echo $value['Title']; ?></h5>
     <p class="card-text"><?php echo $value['Description']; ?></p>
-    <a href="#" class="btn btn-primary">Read</a>
+    <a href="viewblog.php?id=<?php echo $value['id'];?>" class="btn btn-primary">Read</a>
   </div>
 </div>
   <?php } ?>

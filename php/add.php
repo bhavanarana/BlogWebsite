@@ -19,7 +19,7 @@ include 'db.php' ;
 </form>
 </div>
 <?php 
-if(isset($_REQUEST['info'])=="added"){?>
+if(isset($_REQUEST['result'])=="added"){?>
 <!--alert box-->
 <div class="container">
 <div class="alert alert-success" role="alert">
