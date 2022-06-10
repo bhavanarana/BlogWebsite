@@ -1,7 +1,7 @@
 <html>
-<?php 
-include 'bootstrap.php'; 
-include 'db.php' ;
+<?php
+include 'bootstrap.php';
+include 'db.php';
 ?>
 <body>
   <?php include 'nav.php'; ?>
@@ -18,26 +18,25 @@ include 'db.php' ;
   </div>
 </form>
 </div>
-<?php 
-if (isset($_POST['submit'])) {
-  $title = $_POST['title'];
-  $disc = $_POST['desc'];
-  $query = "INSERT INTO entries (Title, Description) VALUES ('$title','$disc')";
-  $query_insert = mysqli_query($conn, $query);
-  if ($query_insert) {
-      // echo '<h1>You have Successfully Submitted</h1>';
-      header("Location:add.php?result=added");
-  } else {
-      echo "<h1>Try Again</h1>";
-  }
-}
-if(isset($_REQUEST['result'])=="added"){?>
+<?php if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $disc = $_POST['desc'];
+    $query = "INSERT INTO entries (Title, Description) VALUES ('$title','$disc')";
+    $query_insert = mysqli_query($conn, $query);
+    if ($query_insert) {
+        // echo '<h1>You have Successfully Submitted</h1>';
+        header('Location:add.php?result=added');
+    } else {
+        echo '<h1>Try Again</h1>';
+    }
+} ?>
+<?php if (isset($_REQUEST['result']) == 'added') { ?>
 <!--alert box-->
 <div class="container">
 <div class="alert alert-success" role="alert">
   You have Successfully uploaded your Blog
 </div>
 </div>
-<?php }?>
+<?php } ?>
 </body>
 </html>

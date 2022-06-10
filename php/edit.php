@@ -11,10 +11,13 @@ if (isset($_REQUEST['submit'])) {
     $id = $_REQUEST['id'];
     $title = $_REQUEST['title'];
     $desc = $_REQUEST['desc'];
-    $update = "UPDATE entires SET Title = '$title', Description = '$desc' WHERE id = '$id'";
+    $update = "UPDATE entries SET Title = '$title', Description = '$desc' WHERE id = '$id'";
     $update_value = mysqli_query($conn, $update);
     if ($update_value) {
-        header('Location: view.php? result=updated');
+        header("Location: view.php?result=updated");
+    }
+    else{
+      echo "error";
     }
 }
 ?>

@@ -2,7 +2,7 @@
   <?php
   include 'bootstrap.php';
   include 'db.php';
-  $select = 'SELECT * FROM entries';
+  $select = "SELECT * FROM entries WHERE Disable_status='0'";
   $query_select = mysqli_query($conn, $select);
   if (!$query_select) {
       echo 'Failed to fetch details';
@@ -26,6 +26,28 @@
   </div>
 </div>
   <?php } ?>
+        </div>
+        <div class="row">
+       <?php if (isset($_REQUEST['result'])){ ?>
+
+        <?php if ($_REQUEST['result'] == 'deleted') { ?>
+                <!--alert box-->
+                <div class="container">
+                <div class="alert alert-success" role="alert">
+                You have Successfully Deleted your Blog
+                </div>
+                </div>
+                <?php } ?>
+                      <?php
+                       if ($_REQUEST['result'] == 'updated') { ?>
+                      <!--alert box-->
+                      <div class="container">
+                      <div class="alert alert-success" role="alert">
+                      You have Successfully updated your Blog
+                      </div>
+                      </div>
+                      <?php }?>
+<?php } ?>    
         </div>
     </div>
 
