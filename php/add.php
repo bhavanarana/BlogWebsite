@@ -8,6 +8,7 @@ include 'db.php';
     <div class="container add-container">
       <form action = "" method = "POST">
 <div class="mb-3">
+  <h1 class="add-heading">Add Your Blog</h1>
   <label for="title" class="form-label">Title</label>
   <input type="text" class="form-control" name="title" class="title">
 </div>

@@ -27,6 +27,7 @@ if (isset($_REQUEST['submit'])) {
       <form action = "" method = "POST">
       <?php foreach ($fetch_details as $value) { ?>
 <div class="mb-3">
+<h1 class="add-heading">Edit Your Blog</h1>
 <input type="text" hidden name="id" value="<?php echo $value['id'] ?>">
   <label for="title" class="form-label">Title</label>
   <input type="text" class="form-control" name="title" class="title" value= "<?php echo $value[
