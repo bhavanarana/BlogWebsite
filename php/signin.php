@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 include 'db.php';
 if (isset($_POST['signin'])) {
     $email = $_POST['email'];
@@ -8,6 +8,7 @@ if (isset($_POST['signin'])) {
     foreach ($select_query as $value) {
         $match_password = password_verify($password, $value['password']);
         if ($match_password) {
+            $_SESSION['username'] = $value['password'];
             $_SESSION['email'] = $email;
             header('Location: index.php');
             exit();
