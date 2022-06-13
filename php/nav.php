@@ -12,6 +12,7 @@ if (isset($_REQUEST['logout'])) {
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+    <?php if(!empty($_SESSION['email'])){ ?>
       <ul class="navbar-nav ">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="landing.php">Home</a>
@@ -22,12 +23,11 @@ if (isset($_REQUEST['logout'])) {
         <li class="nav-item">
           <a class="nav-link" href="view.php">View Blog</a>
         </li>
-      </ul>
-        <?php if(!empty($_SESSION['email'])){ ?>  
+      </ul>  
         <div class="ms-auto"> <!--float to right(ms-auto) float to left(me-auto) -->
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Hello, <?php echo $_SESSION['email']; ?>
+              Hello, <?php echo $_SESSION['username']; ?>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
               <li><a class="dropdown-item" href="#">
