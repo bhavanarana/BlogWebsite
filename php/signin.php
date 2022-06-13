@@ -1,14 +1,15 @@
 <?php
+session_start();
 include 'db.php';
-if (isset($_POST['signin'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if (isset($_REQUEST['signin'])) {
+    $email = $_REQUEST['email'];
+    $password = $_REQUEST['password'];
     $query = "SELECT * FROM users WHERE email='$email'";
     $select_query = mysqli_query($conn, $query);
     foreach ($select_query as $value) {
         $match_password = password_verify($password, $value['password']);
         if ($match_password) {
-            $_SESSION['username'] = $value['password'];
+            $_SESSION['username'] = $value['name'];
             $_SESSION['email'] = $email;
             header('Location: index.php');
             exit();
