@@ -14,8 +14,14 @@ session_start();
             <div class="col-6 content">
                 <h1 class = "home-heading">Welcome</h1>
                 <h5 class="home-sub-heading">Create.Read.Update.Delete</h5>
+                <?php if(!empty($_SESSION['email'])){ ?>
                 <a class="btn btn-primary" href="add.php" role="button">Add Blog</a>
                 <a class="btn btn-primary" href="view.php" role="button">View Blog</a>
+                <?php }
+                 else { ?>
+                    <a class="btn btn-primary" href="signup.php" role="button">Sign Up</a>
+                <a class="btn btn-primary" href="signin.php" role="button">Sign In</a>
+                <?php } ?>
             </div>
         </div>
     </div>
