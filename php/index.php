@@ -4,7 +4,6 @@ session_start();
 <!doctype html>
 <html lang="en">
 <?php include "bootstrap.php"; ?>
-
 <body>
     <?php include "nav.php" ?>
     <div class="container">

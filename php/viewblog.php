@@ -14,7 +14,6 @@ if (isset($_REQUEST['delete'])) {
     header("Location: view.php?result=deleted");
   }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +40,6 @@ if (isset($_REQUEST['delete'])) {
         </div>
       <?php } ?>
     </div>
-
   </div>
 </body>
-
 </html>
