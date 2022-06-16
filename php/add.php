@@ -23,8 +23,9 @@ session_start();
   <?php if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $disc = $_POST['desc'];
+    $description = mysqli_real_escape_string($conn, $disc);
     $user_id = $_SESSION['user_id'];
-    $query = "INSERT INTO entries (Title, Description, user_id) VALUES ('$title','$disc', '$user_id')";
+    $query = "INSERT INTO entries (Title, Description, user_id) VALUES ('$title','$description', '$user_id')";
     $query_insert = mysqli_query($conn, $query);
     if ($query_insert) {
       // echo '<h1>You have Successfully Submitted</h1>';

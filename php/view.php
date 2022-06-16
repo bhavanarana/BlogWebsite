@@ -19,7 +19,13 @@
         <div class="card view-card" style="width: 18rem;">
   <div class="card-body d-flex flex-column">
     <h5 class="card-title"><?php echo $value['Title']; ?></h5>
-    <p class="card-text"><?php echo $value['Description']; ?></p>
+    <p class="card-text"><?php 
+    
+
+      // truncate string
+      $stringCut = substr($value['Description'], 0, 120); 
+    echo $stringCut;?>
+    </p>
     <a href="viewblog.php?id=<?php echo $value[
         'id'
     ]; ?>" class="btn btn-primary view-button mt-auto">Read</a>
