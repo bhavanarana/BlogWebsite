@@ -10,7 +10,7 @@ if (isset($_REQUEST['signin'])) {
         $match_password = password_verify($password, $value['password']);
         if ($match_password) {
             $_SESSION['username'] = $value['name'];
-            $_SESSION['email'] = $email;
+            $_SESSION['user_id'] = $value['id'];
             header('Location: index.php');
             exit();
         }

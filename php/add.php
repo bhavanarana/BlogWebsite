@@ -2,6 +2,7 @@
 <?php
 include 'bootstrap.php';
 include 'db.php';
+session_start();
 ?>
 <body>
   <?php include 'nav.php'; ?>
@@ -22,7 +23,8 @@ include 'db.php';
 <?php if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $disc = $_POST['desc'];
-    $query = "INSERT INTO entries (Title, Description) VALUES ('$title','$disc')";
+   $user_id = $_SESSION['user_id'];
+    $query = "INSERT INTO entries (Title, Description, user_id) VALUES ('$title','$disc', '$user_id')";
     $query_insert = mysqli_query($conn, $query);
     if ($query_insert) {
         // echo '<h1>You have Successfully Submitted</h1>';
