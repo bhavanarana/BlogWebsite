@@ -1,11 +1,12 @@
 <?php
 session_start();
+include "db.php";
 ?>
 <!doctype html>
 <html lang="en">
 <?php include "bootstrap.php"; ?>
 <body>
-    <?php include "nav.php" ?>
+    <?php include "nav.php"; ?>
     <div class="container">
         <div class="row">
             <div class="col-6 img">
