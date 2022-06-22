@@ -36,4 +36,5 @@ if (isset($_POST['signup'])) {
     </form>
   </div>
 </body>
+
 </html>

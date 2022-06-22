@@ -10,6 +10,7 @@ if (isset($_REQUEST['delete'])) {
   $id = $_REQUEST['id'];
   $update = "UPDATE entries SET Disable_status='1' WHERE id='$id'";
   $update_query = mysqli_query($conn, $update);
+
   if ($update_query) {
     header("Location: view.php?result=deleted");
   }
@@ -42,4 +43,5 @@ if (isset($_REQUEST['delete'])) {
     </div>
   </div>
 </body>
+
 </html>
