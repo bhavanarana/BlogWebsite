@@ -13,14 +13,26 @@ if (isset($_POST['submit'])) {
     $disc = $_POST['desc'];
     $description = mysqli_real_escape_string($conn, $disc);
     $img = $_FILES['image_thumb']; //access image
+    $img_size = $img['size']; // image size
     $img_name = $img['name']; // acess name of image
     $img_temp_name = $img['tmp_name']; // acess path of image store temporary
-    if ($img_name) {
-      $img_ext = pathinfo($img_name, PATHINFO_EXTENSION);
-      $new_img_ext = strtolower($img_ext);
-      $unique_name = uniqid("IMG-", true) . "." . $new_img_ext;
-      $img_path = '../uploads/' . $unique_name;
-      move_uploaded_file($img_temp_name, $img_path);
+    if ($img) {
+      if ($img_size > 4194304) {  //4194304byte = 4mb
+        header('Location:add.php?error=size');
+        die();
+      } else {
+        $array_alw_fmt = array("jpg", "png", "jpeg");
+        $img_ext = pathinfo($img_name, PATHINFO_EXTENSION);
+        $new_img_ext = strtolower($img_ext);
+        if (in_array($new_img_ext, $array_alw_fmt)) {
+          $unique_name = uniqid("IMG-", true) . "." . $new_img_ext;
+          $img_path = '../uploads/' . $unique_name;
+          move_uploaded_file($img_temp_name, $img_path);
+        } else {
+          header('Location:add.php?error=format');
+          die();
+        }
+      }
     } else {
       $unique_name = NULL;
     }
@@ -33,6 +45,7 @@ if (isset($_POST['submit'])) {
     } else {
       echo '<h1>Try Again</h1>';
     }
+    // print_r($img_size);
   }
 } ?>
 <html>
@@ -42,6 +55,32 @@ include 'bootstrap.php';
 
 <body>
   <?php include 'nav.php'; ?>
+  <?php if (isset($_REQUEST['error'])) { ?>
+    <?php if ($_REQUEST['error'] == 'size') { ?>
+      <!--alert box-->
+      <div class="container">
+        <div class="alert alert-success" role="alert">
+          File size exceeded!
+        </div>
+      </div>
+    <?php } ?>
+    <?php if ($_REQUEST['error'] == 'format') { ?>
+      <!--alert box-->
+      <div class="container">
+        <div class="alert alert-success" role="alert">
+          Format not allowed!
+        </div>
+      </div>
+    <?php } ?>
+    <?php if ($_REQUEST['result'] == 'added') { ?>
+      <!--alert box-->
+      <div class="container">
+        <div class="alert alert-success" role="alert">
+          You have Successfully uploaded your Blog
+        </div>
+      </div>
+    <?php } ?>
+  <?php } ?>
   <div class="container add-container">
     <form action="" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
