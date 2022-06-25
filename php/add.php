@@ -49,9 +49,11 @@ if (isset($_POST['submit'])) {
   }
 } ?>
 <html>
-<?php
-include 'bootstrap.php';
-?>
+
+<head>
+  <?php include "bootstrap.php"; ?>
+  <title>Welcome to Blogs</title>
+</head>
 
 <body>
   <?php include 'nav.php'; ?>

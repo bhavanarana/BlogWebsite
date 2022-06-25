@@ -13,7 +13,11 @@ if (isset($_POST['signup'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'bootstrap.php'; ?>
+
+<head>
+  <?php include "bootstrap.php"; ?>
+  <title>Sign Up</title>
+</head>
 
 <body>
   <div class="container">

@@ -18,7 +18,11 @@ if (isset($_REQUEST['delete'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'bootstrap.php'; ?>
+
+<head>
+  <?php include "bootstrap.php"; ?>
+  <title>View Blog</title>
+</head>
 
 <body>
   <?php include 'nav.php'; ?>
