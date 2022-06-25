@@ -19,7 +19,11 @@ if (isset($_REQUEST['signin'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'bootstrap.php'; ?>
+
+<head>
+  <?php include "bootstrap.php"; ?>
+  <title>Sign In</title>
+</head>
 
 <body>
   <div class="container">

@@ -1,7 +1,6 @@
 <html>
 <?php
 session_start();
-include 'bootstrap.php';
 include 'db.php';
 $select = "SELECT * FROM entries WHERE Disable_status='0'";
 $query_select = mysqli_query($conn, $select);
@@ -9,6 +8,11 @@ if (!$query_select) {
   echo 'Failed to fetch details';
 }
 ?>
+
+<head>
+  <?php include "bootstrap.php"; ?>
+  <title>All Blog</title>
+</head>
 
 <body>
   <?php include 'nav.php'; ?>

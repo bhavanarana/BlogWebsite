@@ -4,7 +4,11 @@ include "db.php";
 ?>
 <!doctype html>
 <html lang="en">
-<?php include "bootstrap.php"; ?>
+
+<head>
+  <?php include "bootstrap.php"; ?>
+  <title>B.Writes</title>
+</head>
 
 <body>
   <?php include "nav.php"; ?>
