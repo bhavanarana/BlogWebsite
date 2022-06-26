@@ -8,6 +8,8 @@ if (!$query_select) {
   echo 'Failed to fetch details';
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
   <?php include "bootstrap.php"; ?>

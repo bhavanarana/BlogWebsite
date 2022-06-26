@@ -20,6 +20,8 @@ if (isset($_REQUEST['submit'])) {
   }
 }
 ?>
+<!doctype html>
+<html lang="en">
 
 <head>
   <?php include "bootstrap.php"; ?>

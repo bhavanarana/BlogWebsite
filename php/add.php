@@ -48,6 +48,8 @@ if (isset($_POST['submit'])) {
     // print_r($img_size);
   }
 } ?>
+<!doctype html>
+<html lang="en">
 <html>
 
 <head>
