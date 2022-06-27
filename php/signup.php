@@ -7,7 +7,7 @@ if (isset($_POST['signup'])) {
   $query = "INSERT INTO users (name, email, password) VALUES ('$name','$email','$secure_password')";
   $query_run = mysqli_query($conn, $query);
   if ($query_run) {
-    // header('Location: signin.php');
+    header('Location: signin.php');
     echo "success";
   }
 }
@@ -46,14 +46,16 @@ if (isset($_POST['signup'])) {
         <i class="fa fa-exclamation-circle fa-1x"></i>
         <small>Error Message</small>
       </div>
-      <input type="submit" value="Sign Up" name="signup" class="btn btn-primary float-start">
+      <input type="submit" value="Sign Up" name="signup" id="button" class="btn btn-primary float-start">
     </form>
   </div>
   <script>
+    let successVal = false;
     const form = document.getElementById('signup-form');
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
+    let button = document.getElementById("button");
     form.addEventListener('keyup', (e) => {
       e.preventDefault();
       checkValidation();
@@ -71,6 +73,8 @@ if (isset($_POST['signup'])) {
       }
       if (emailValue == "" || emailValue == null) {
         error(email, 'Email Cannot be blank');
+      } else if (!emailValidate.test(emailValue)) {
+        error(email, 'Please Enter a Valid email');
       } else {
         success(email);
       }
@@ -78,11 +82,6 @@ if (isset($_POST['signup'])) {
         error(password, 'password Cannot be blank');
       } else {
         success(password);
-      }
-      if (emailValidate.test(emailValue)) {
-        success(email);
-      } else {
-        error(email, 'Please Enter a Valid email')
       }
     }
 
