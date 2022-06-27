@@ -1,36 +1,70 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: poppins;
-    color: black;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: poppins;
+  color: black;
 }
-.content{
-    margin-top: 120px;
-    text-align: center;
+.content {
+  margin-top: 120px;
+  text-align: center;
 }
-.home-heading{
-    font-size: 100px;
+.home-heading {
+  font-size: 100px;
 }
-.home-sub-heading{
-    color: #F66B0E;
+.home-sub-heading {
+  color: #f66b0e;
 }
-.add-container{
-    width: 50%;
+.add-container {
+  width: 50%;
 }
-.add-heading{
-    margin-top: 50px;
-margin-bottom: 50px;
-color: #F66B0E;
+.add-heading {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: #f66b0e;
 }
-.view-heading{
-    text-align: center;
-    margin-top: 30px;
-    color: #F66B0E;
+.view-heading {
+  text-align: center;
+  margin-top: 30px;
+  color: #f66b0e;
 }
-.view-card{
-margin: 20px;
+.view-card {
+  margin: 20px;
 }
-.view-button{
-    width:100px;
+.view-button {
+  width: 100px;
+}
+.signup-container {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  /* min height center the container */
+  margin-left: 700px;
+  width: 800px;
+}
+.input-form {
+  margin-top: 30px;
+}
+.input-form i {
+  visibility: hidden;
+}
+.input-form small {
+  visibility: hidden;
+}
+.success input {
+  border-color: #2ecc71;
+}
+.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+.error input {
+  border-color: #e74c3c;
+}
+.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+.input-form.error small {
+  visibility: visible;
+  color: #e74c3c;
 }
