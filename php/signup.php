@@ -54,7 +54,7 @@ if (isset($_POST['signup'])) {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
     let password = document.getElementById('password');
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('keyup', (e) => {
       e.preventDefault();
       checkValidation();
     });
@@ -79,7 +79,11 @@ if (isset($_POST['signup'])) {
       } else {
         success(password);
       }
-
+      if (emailValidate.test(emailValue)) {
+        success(email);
+      } else {
+        error(email, 'Please Enter a Valid email')
+      }
     }
 
     function success(input) {
