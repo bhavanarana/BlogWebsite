@@ -37,12 +37,13 @@
   display: flex;
   align-items: center;
   min-height: 100vh;
+  /* vh= view port height */
   /* min height center the container */
   margin-left: 700px;
   width: 800px;
 }
 .input-form {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .input-form i {
   visibility: hidden;
