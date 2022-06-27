@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $img_size = $img['size']; // image size
     $img_name = $img['name']; // acess name of image
     $img_temp_name = $img['tmp_name']; // acess path of image store temporary
-    if ($img) {
+    if ($img_name) {
       if ($img_size > 4194304) {  //4194304byte = 4mb
         header('Location:add.php?error=size');
         die();
