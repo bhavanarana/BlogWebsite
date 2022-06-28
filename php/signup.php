@@ -3,11 +3,21 @@ if (isset($_POST['signup'])) {
   $name = $_POST['name'];
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $checkInput = "SELECT * FROM users WHERE email = '$email'";
+  // mysqli_report(MYSQLI_REPORT_STRICT);
+  $checkInputQuery = mysqli_query($conn, $checkInput);
+  if ($checkInputQuery) {
+    echo "taken";
+    die();
+  } else {
+    echo 'not_taken';
+  }
+  //exit();
   $secure_password = password_hash($password, PASSWORD_DEFAULT);
   $query = "INSERT INTO users (name, email, password) VALUES ('$name','$email','$secure_password')";
   $query_run = mysqli_query($conn, $query);
   if ($query_run) {
-    header('Location: signin.php');
+    //header('Location: signin.php');
     echo "success";
   }
 }
