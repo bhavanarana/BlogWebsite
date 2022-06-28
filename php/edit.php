@@ -1,6 +1,6 @@
-<?php include 'db.php'; ?>
-<html>
 <?php
+session_start();
+include 'db.php';
 if (isset($_REQUEST['id'])) {
   $id = $_REQUEST['id'];
   $fetch = "SELECT * FROM entries WHERE id = '$id'";
@@ -20,6 +20,9 @@ if (isset($_REQUEST['submit'])) {
   }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
 
 <head>
   <?php include "bootstrap.php"; ?>
