@@ -1,4 +1,3 @@
-<html>
 <?php
 session_start();
 include 'db.php';
@@ -8,6 +7,8 @@ if (!$query_select) {
   echo 'Failed to fetch details';
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <?php include "bootstrap.php"; ?>

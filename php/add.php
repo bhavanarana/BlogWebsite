@@ -48,7 +48,8 @@ if (isset($_POST['submit'])) {
     // print_r($img_size);
   }
 } ?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
   <?php include "bootstrap.php"; ?>
