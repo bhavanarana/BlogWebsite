@@ -52,11 +52,11 @@ if (!$query_select) {
       <?php foreach ($query_select as $value) { ?>
         <div class="card view-card" style="width: 18rem;">
           <?php if ($value['image_url'] != null) { ?>
-            <img class="card-img-top" src="../uploads/<?php echo $value['image_url'] ?>">
+            <img class="card-img-top" style="width:300px;height:300px;" src="../uploads/<?php echo $value['image_url'] ?>">
           <?php } ?>
           <?php if ($value['image_url'] == null) { ?>
 
-            <img class="card-img-top" src="../uploads/default.png">
+            <img class="card-img-top" style="width:300px;height:300px;" src="../uploads/default.png">
           <?php  } ?>
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><?php echo $value['Title']; ?></h5>
