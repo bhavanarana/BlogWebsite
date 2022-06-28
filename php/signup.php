@@ -4,21 +4,19 @@ if (isset($_POST['signup'])) {
   $email = $_POST['email'];
   $password = $_POST['password'];
   $checkInput = "SELECT * FROM users WHERE email = '$email'";
-  // mysqli_report(MYSQLI_REPORT_STRICT);
+  mysqli_report(MYSQLI_REPORT_STRICT);
   $checkInputQuery = mysqli_query($conn, $checkInput);
-  if ($checkInputQuery) {
-    echo "taken";
+  // print_r($checkInputQuery);sss
+  if (mysqli_num_rows($checkInputQuery) > 0) {
+    header('Location: signup.php?error=email_taken');
     die();
-  } else {
-    echo 'not_taken';
   }
   //exit();
   $secure_password = password_hash($password, PASSWORD_DEFAULT);
   $query = "INSERT INTO users (name, email, password) VALUES ('$name','$email','$secure_password')";
   $query_run = mysqli_query($conn, $query);
   if ($query_run) {
-    //header('Location: signin.php');
-    echo "success";
+    header('Location: signin.php');
   }
 }
 ?>
@@ -34,6 +32,13 @@ if (isset($_POST['signup'])) {
   <div class="container signup-container">
     <form method="POST" class="form" id="signup-form">
       <h1>Sign Up</h1>
+      <?php if (isset($_REQUEST['error'])) { ?>
+        <?php if ($_REQUEST['error'] == 'email_taken') { ?>
+          <div class="alert alert-danger mt-4 mb-4" role="alert">
+            This email already exists! Try a different email
+          </div>
+        <?php } ?>
+      <?php } ?>
       <div class="mb-3 input-form">
         <label for="name" class="form-label">Username</label>
         <input type="text" id="name" name="name" class="form-control input-form">
@@ -45,7 +50,7 @@ if (isset($_POST['signup'])) {
         <label for="email" class="form-label">Email address</label>
         <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        <i class="fa fa-check-circle fa-1x"></i>
+        <i class=" fa fa-check-circle fa-1x"></i>
         <i class="fa fa-exclamation-circle fa-1x"></i>
         <small>Error Message</small>
       </div>
